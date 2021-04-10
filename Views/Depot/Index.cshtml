@@ -1,76 +1,35 @@
-﻿
-@{
-    ViewBag.Title = "Depo";
-}
+﻿@model List<Kovan.Models.DepotModel>
+    @{
 
-<style type="text/css"></style>
-<div class="container-fluid">
-    <ul>
+        ViewBag.Title = "Depo";
+    }
 
-        <li>
-            <div class="card card-green col-md-12">
-                <p class="card-question">how old was the oldest person ever?</p>
-                <div class="card-separator"></div>
-                <p style="text-align:justify;">The oldest verified person on record was French woman <b>Jeanne Calment</b> (1875–1997), who lived to the age of <b>122 years, 164 days.</b></p>
-                <a href="https://en.wikipedia.org/wiki/List_of_the_verified_oldest_people">View Source</a>
-                <div class="card-separator"></div>
-            </div>
-        </li>
 
-        <li>
-            <div class="card card-green col-md-12">
-                <p class="card-question">What year was Bill Gates born?</p>
-                <div class="card-separator"></div>
-                <p style="text-align:justify;">Bill Gates was born William Henry Gates III on <b>October 28, 1955</b>, in Seattle, Washington.</p>
-                <a href="http://www.biography.com/people/bill-gates-9307520#early-life">View Source</a>
-                <div class="card-separator"></div>
-            </div>
-        </li>
+    <div class="grey-bg container-fluid" style="margin-top:2rem;">
+        <div class="row">
+            @{
+                foreach (var item in Model)
+                {
+                    <div class="col-sm-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Special title treatment</h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            </div>
+                            <div class="card-footer" style="display:flex;justify-content:space-between;">
+                                            <a href="#" class="btn btn-sm btn-danger btn-danger">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                                </svg>
+                                            </a>
+                                <a href="#" class="btn btn-primary">-</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
 
-        <li>
-            <div class="card card-blue  col-md-12">
-                <p class="card-question">What is the heaviest thing in the world?</p>
-                <div class="card-separator"></div>
-                <p style="text-align:justify;">
-                    According to the Guinness Book of World Records, the heaviest thing to ever be weighed as of 2015 was the Revolving Service Structure of launch pad 39B at the Kennedy Space Center in Florida. It weighed 2423 tonnes, or 5,342,000 pounds, and required
-                    21 jacking points to lift.
-                </p>
-                <a href="https://en.wikipedia.org/wiki/List_of_the_verified_oldest_people">View Source</a>
-                <div class="card-separator"></div>
-            </div>
-        </li>
-
-        <li>
-            <div class="card card-red col-md-12">
-                <p class="card-question">What is the most expensive burger on the planet?</p>
-                <div class="card-separator"></div>
-                <p style="text-align:justify;"><b>The Totally Artificial Lab-Grown Burger</b>. Estimated at <b>$330,000</b></p>
-                <a href="https://en.wikipedia.org/wiki/List_of_the_verified_oldest_people">View Source</a>
-                <div class="card-separator"></div>
-            </div>
-        </li>
-
-        <li>
-            <div class="card card-green col-md-12">
-                <p class="card-question">What year was Bill Gates born?</p>
-                <div class="card-separator"></div>
-                <p style="text-align:justify;">Bill Gates was born William Henry Gates III on <b>October 28, 1955</b>, in Seattle, Washington.</p>
-                <a href="http://www.biography.com/people/bill-gates-9307520#early-life">View Source</a>
-                <div class="card-separator"></div>
-            </div>
-        </li>
-
-        <li>
-            <div class="card card-blue  col-md-12">
-                <p class="card-question">What is the heaviest thing in the world?</p>
-                <div class="card-separator"></div>
-                <p style="text-align:justify;">
-                    According to the Guinness Book of World Records, the heaviest thing to ever be weighed as of 2015 was the Revolving Service Structure of launch pad 39B at the Kennedy Space Center in Florida. It weighed 2423 tonnes, or 5,342,000 pounds, and required
-                    21 jacking points to lift.
-                </p>
-                <a href="https://en.wikipedia.org/wiki/List_of_the_verified_oldest_people">View Source</a>
-                <div class="card-separator"></div>
-            </div>
-        </li>
-    </ul>
-</div>
+           
+        </div>
+    </div>

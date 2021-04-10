@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kovan.Core.DataManager;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,10 @@ namespace Kovan.Controllers
         // GET: Depot
         public ActionResult Index()
         {
-            return View();
+            using (DepotManager dm = new DepotManager())
+            {
+                return View(dm.GetDepots());
+            }            
         }
     }
 }

@@ -154,6 +154,7 @@
       <LastGenOutput>dbKovan.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Content\depot.css" />
     <None Include="Core\DataManager\dbKovan.dbml.layout">
       <DependentUpon>dbKovan.dbml</DependentUpon>
     </None>

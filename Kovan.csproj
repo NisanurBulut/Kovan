@@ -121,7 +121,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DepotController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MaterialController.cs" />
     <Compile Include="Core\DataManager\DataAccessObject.cs" />
     <Compile Include="Core\DataManager\DbContextPartial.cs" />
     <Compile Include="Core\DataManager\dbKovan.designer.cs">
@@ -129,6 +131,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dbKovan.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Core\DataManager\DepotManager.cs" />
+    <Compile Include="Core\DataManager\MaterialManager.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -182,6 +186,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Depot\" />
+    <Folder Include="Views\Material\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

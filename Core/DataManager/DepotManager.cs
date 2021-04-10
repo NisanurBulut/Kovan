@@ -13,5 +13,9 @@ namespace Kovan.Core.DataManager
         {
             return dc.tDepots.Select(a => a.DepotModel()).ToList();
         }
+        public DepotModel GetDepot(int id)
+        {
+            return dc.tDepots.Where(a => a.Id == id).Select(a=>a.DepotModel()).FirstOrDefault() ?? new DepotModel();
+        }
     }
 }

@@ -1,1 +1,24 @@
-﻿
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="dbKovan">
+  <DataContextMoniker Name="/dbKovanDataContext" />
+  <nestedChildShapes>
+    <classShape Id="b5dcbf90-4bb6-4d9a-b3bb-4ea6813ad3ba" absoluteBounds="0.75, 0.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/dbKovanDataContext/tDepot" />
+      <nestedChildShapes>
+        <elementListCompartment Id="460d27bf-0d54-4a4b-a735-93942d3bb4f0" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="90a64983-821b-4552-bf05-80e6e77892d9" absoluteBounds="3, 0.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/dbKovanDataContext/tMaterial" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b6b176c2-bbce-4ff1-b34c-a791a785124d" absoluteBounds="3.015, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ade75f82-0630-4b81-b09f-69a170a05ce3" absoluteBounds="0.75, 2.5, 2, 1.9631982421875">
+      <DataClassMoniker Name="/dbKovanDataContext/tShipment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ce1ef6b1-dc38-4800-a114-6ea1b8c0e996" absoluteBounds="0.76500000000000012, 2.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kovan.Core.DataManager;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,11 @@ namespace Kovan.Controllers
     {
         public ActionResult Index()
         {
+            using (SharedManager dm = new SharedManager())
+            {
+                ViewData["selectDepots"] = dm.GetSelectDepots();
+                ViewData["selectMaterials"] = dm.GetSelectMaterials();
+            }
             return View();
         }
     }

@@ -3,6 +3,7 @@ using Kovan.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -29,7 +30,7 @@ namespace Kovan.Controllers
                     dm.SaveShipment(shipment);
                 }
             }
-            return RedirectToAction("Index");
+            return Json("", JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Hareket Merkezi";
 }
-<div id="generalToast" class="toast fade hidden bg-primary position-fixed bottom-0 end-0 m-3" role="alert" aria-live="polite" aria-atomic="true" data-bs-delay="10000">
+<div id="generalToast" class="toast fade hidden position-fixed bottom-0 end-0 m-3" style="color:#fff" role="alert" aria-live="polite" aria-atomic="true" data-bs-delay="10000">
         <div class="d-flex">
             <div class="toast-body">
             </div>
@@ -52,7 +52,7 @@
                             @Html.DropDownList("MaterialId", (List<SelectListItem>)ViewData["selectMaterials"], new { @class = "form-control materialid", @message="Materyal bilgisi boş bırakılamaz.", @id="MaterialId" })
                         </th>
                         <td><label>Kalem Tanımı</label></td>
-                        <td><input id=Amount value="1" name="Amount" class="input-sm form-control amount" type="number" placeholder="miktar" message="Miktar bilgisi 0'dan büyük olmalıdır."/></td>
+                        <td><input id=Amount value="1" class="input-sm form-control amount" type="number" placeholder="miktar" message="Miktar bilgisi 0'dan büyük olmalıdır."/></td>
                         <td><label>Birim</label></td>
                         <td><button class="btn btn-sm btn-danger" onClick="removeFromdtBody(this)">-</button></td>
                     </tr>`;
@@ -81,54 +81,63 @@
                     dataType: 'json',
                     data: things,
                     success: function (response) {
-                        console.log(response);
+                        showToast("İşlem başarılı", "bg-success");
                 },
                     error: function (err) {
                         console.log(err);
-                        showToast("Bir hata ile karşılaşıldı. İşlem iptal edildi.");
+                        showToast("Bir hata ile karşılaşıldı. İşlem iptal edildi.","bg-danger");
                 }
             });
         }
     }
-    function populateFormToModel() {
-        var modelParams = [];
+    function deepCopyShipment(amount, materialId) {
         var model = {
-            OriginDepotId: $("#OriginDepotId").val(),
-            TargetDepotId: $("#TargetDepotId").val(),
+            OriginDepotId: 0,
+            TargetDepotId: 0,
             MaterialId: 0,
             Amount: 0,
-            Id:0,
-            ShipmentDate:""
         };
 
+        model.OriginDepotId = $("#OriginDepotId").val();
+        model.TargetDepotId = $("#TargetDepotId").val();
+        model.Amount = amount;
+        model.MaterialId = materialId;
+        return model;
+    }
+    function populateFormToModel() {
+        var modelParams = [];
+    
         $('#dtbody tr').each(function () {
-            model.MaterialId = $(this).children().find('.materialid').val();
-            model.Amount = $(this).children().find(".amount").val();
-            modelParams.push(model);
+            var trId = $(this).attr("id");
+            let idmaterial = $(`#MaterialId-${trId}`).val(); 
+            let amount = $(this).children().find(".amount").val();
+            let newModel = deepCopyShipment(amount, idmaterial);
+            modelParams.push(newModel);           
         });
         return modelParams;
     }
     function validateForm() {
         var flag = true;
         if ($("#OriginDepotId").val() == null || $("#OriginDepotId").val() == undefined) {
-            showToast($(this).attr("message"));
+            showToast($(this).attr("message"),"bg-danger");
         }
         if ($("#TargetDepotId").val() == null || $("#TargetDepotId").val() == undefined) {
-            showToast($(this).attr("message"));
+            showToast($(this).attr("message"),"bg-danger");
         }
         if ($('#dtbody').children().find('.form-control').length < 1) {
-            showToast("Sevkiyat bilgisi belirtiniz.");
+            showToast("Sevkiyat bilgisi belirtiniz.","bg-danger");
             return false;
         }
         $('#dtbody').children().find('.form-control').each(function () {
             if (this.value == "" || this.value <= 0) {
-                showToast($(this).attr("message"));
+                showToast($(this).attr("message"),"bg-danger");
                 flag = false;
             }
         });
         return flag;
     }
-    function showToast(message) {
+    function showToast(message, type) {
+        $("#generalToast").addClass(type);
         $("#generalToast").removeClass("hidden");
         $("#generalToast").addClass("show");
         $("#generalToast .toast-body").html(message);

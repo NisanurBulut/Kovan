@@ -122,7 +122,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DepotController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ShipmentController.cs" />
     <Compile Include="Controllers\MaterialController.cs" />
     <Compile Include="Core\DataManager\DataAccessObject.cs" />
     <Compile Include="Core\DataManager\DbContextPartial.cs" />
@@ -183,9 +183,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shipment\Index.cshtml" />
     <Content Include="Views\Depot\Index.cshtml" />
     <Content Include="Views\Material\Index.cshtml" />
     <Content Include="Views\Depot\editDepot.cshtml" />

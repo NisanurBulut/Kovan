@@ -32,5 +32,24 @@ namespace Kovan.Controllers
             }
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public ActionResult editMaterial(int id)
+        {
+            using (MaterialManager dm = new MaterialManager())
+            {
+                var model = dm.GetMaterial(id);
+                return PartialView(model);
+            }
+        }
+        [HttpPost]
+        public ActionResult editMaterial(MaterialModel MaterialModel)
+        {
+            using (MaterialManager dm = new MaterialManager())
+            {
+                dm.UpdateMaterial(MaterialModel);
+            }
+            return RedirectToAction("Index");
+        }
+
     }
 }

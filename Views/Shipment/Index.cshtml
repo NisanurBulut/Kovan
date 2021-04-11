@@ -67,7 +67,20 @@
         var resultValidation = validateForm();
         if (resultValidation === true) {
             var params = populateFormToModel();
-            console.log(params);
+            var things = JSON.stringify({ 'shipments': params });
+                $.ajax({
+                url: '@Url.Action("SaveShipment", "Shipment")',
+                    type: 'POST',
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    data: things,
+                success: function (response) {
+
+                },
+                    error: function (err) {
+                        showToast("Bir hata ile karşılaşıldı. İşlem iptal edildi.");
+                }
+            });
         }
     }
     function populateFormToModel() {
@@ -76,9 +89,11 @@
             OriginDepotId: $("#OriginDepotId").val(),
             TargetDepotId: $("#TargetDepotId").val(),
             MaterialId: 0,
-            Amount: 0
+            Amount: 0,
+            Id:0,
+            ShipmentDate:""
         };
-       
+
         $('#dtbody tr').each(function () {
             model.MaterialId = $(this).children().find('.materialid').val();
             model.Amount = $(this).children().find(".amount").val();
@@ -94,11 +109,15 @@
         if ($("#TargetDepotId").val() == null || $("#TargetDepotId").val() == undefined) {
             showToast($(this).attr("message"));
         }
+        if ($('#dtbody').children().find('.form-control').length < 1) {
+            showToast("Sevkiyat bilgisi belirtiniz.");
+            return false;
+        }
         $('#dtbody').children().find('.form-control').each(function () {
             if (this.value == "" || this.value <= 0) {
                 showToast($(this).attr("message"));
                 flag = false;
-            } 
+            }
         });
         return flag;
     }

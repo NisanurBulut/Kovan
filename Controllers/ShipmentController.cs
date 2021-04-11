@@ -1,4 +1,5 @@
 ﻿using Kovan.Core.DataManager;
+using Kovan.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,11 @@ namespace Kovan.Controllers
                 ViewData["selectMaterials"] = dm.GetSelectMaterials();
             }
             return View();
+        }
+        [HttpPost]
+        public ActionResult SaveShipment(List<ShipmentModel> shipments)
+        {
+            return RedirectToAction("Index");
         }
     }
 }

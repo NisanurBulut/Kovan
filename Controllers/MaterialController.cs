@@ -68,5 +68,14 @@ namespace Kovan.Controllers
             }
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public ActionResult getMaterial(int id)
+        {
+            using (MaterialManager dm = new MaterialManager())
+            {
+                var model = dm.GetMaterial(id);
+                return Json(model, JsonRequestBehavior.AllowGet);
+            }
+        }
     }
 }

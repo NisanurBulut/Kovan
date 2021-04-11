@@ -51,16 +51,24 @@
 
     var trFormElement = ` <tr id>
                         <td scope="row">
-                            @Html.DropDownList("MaterialId", (List<SelectListItem>)ViewData["selectMaterials"], new { @class = "form-control materialid", @message="Materyal bilgisi boş bırakılamaz.", @id="MaterialId" })
+                            @Html.DropDownList("MaterialId", (List<SelectListItem>)ViewData["selectMaterials"], new { @class = "form-control materialid", @message="Materyal bilgisi boş bırakılamaz.", @id="MaterialId", @onChange="onChangeMaterial(this)" })
                         </th>
-                        <td><label>Kalem Tanımı</label></td>
+                        <td><label id=MaterialDescription></label></td>
                         <td><input id=Amount value="1" class="input-sm form-control amount" type="number" placeholder="miktar" message="Miktar bilgisi 0'dan büyük olmalıdır."/></td>
                         <td><label>Birim</label></td>
                         <td><button class="btn btn-sm btn-danger" onClick="removeFromdtBody(this)">x</button></td>
                     </tr>`;
+    function onChangeMaterial(item) {
+        const labelId = $(item).attr("id").replace("MaterialId-", "Mdesc-");
+        const materialId = $(item).val();
+        $.get(`/Material/getMaterial?id=${materialId}`, function (result) {
+            $(`#${labelId}`).text(result.Description);
+        });
+    }
     function addRowTodtBody() {
         var dateId = Date.now();
         var trElement = trFormElement.replace("id", `id="${dateId}"`)
+            .replace("id=MaterialDescription", `id="Mdesc-${dateId}"`)
             .replace("id=Amount", `id="Amount-${dateId}"`)
             .replace(`id="MaterialId"`, `id="MaterialId-${dateId}"`);
 
@@ -109,13 +117,13 @@
     }
     function populateFormToModel() {
         var modelParams = [];
-    
+
         $('#dtbody tr').each(function () {
             var trId = $(this).attr("id");
-            let idmaterial = $(`#MaterialId-${trId}`).val(); 
+            let idmaterial = $(`#MaterialId-${trId}`).val();
             let amount = $(this).children().find(".amount").val();
             let newModel = deepCopyShipment(amount, idmaterial);
-            modelParams.push(newModel);           
+            modelParams.push(newModel);
         });
         return modelParams;
     }

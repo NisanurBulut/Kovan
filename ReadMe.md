@@ -27,3 +27,5 @@ o Amount: It is the Amount field on the screen.
 o ShipmentDate: The date the transaction was executed.
 
 - When the process is completed, a message is given to the user as the transaction is successful.
+
+[KOVAN](https://github.com/NisanurBulut/Kovan/blob/master/Trailers/Trailer_Kovan.gif)

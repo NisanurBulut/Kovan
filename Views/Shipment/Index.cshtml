@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Hareket Merkezi";
 }
-<div id="generalToast" class="toast fade hidden position-fixed bottom-0 end-0 m-3" style="color:#fff" role="alert" aria-live="polite" aria-atomic="true" data-bs-delay="10000">
+<div id="generalToast" class="toast fade hidden position-fixed bottom-0 end-0 m-3 text-white" role="alert" aria-live="polite" aria-atomic="true" data-bs-delay="10000">
         <div class="d-flex">
             <div class="toast-body">
             </div>
@@ -23,8 +23,10 @@
             </div>
             <div class="col-md-2">
                 <br />
-                <button type="button" class="btn btn-md btn-success" onclick="addRowTodtBody()">+</button>
-                <button type="button" class="btn btn-md btn-warning" onclick="saveShipment()">Kaydet</button>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-md btn-success" onclick="addRowTodtBody()">+</button>
+                    <button type="button" class="btn btn-md btn-warning text-white" onclick="saveShipment()">Kaydet</button>
+                </div>
             </div>
         </div>
     </div>
@@ -82,6 +84,7 @@
                     data: things,
                     success: function (response) {
                         showToast("İşlem başarılı", "bg-success");
+                        $("#dtbody").html("");
                 },
                     error: function (err) {
                         console.log(err);

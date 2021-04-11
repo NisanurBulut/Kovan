@@ -43,15 +43,20 @@
 
     var trFormElement = ` <tr id>
                         <td scope="row">
-                            @Html.DropDownList("MaterialId", (List<SelectListItem>)ViewData["selectMaterials"], new { @class = "form-control", @message="Materyal bilgisi boş bırakılamaz." })
+                            @Html.DropDownList("MaterialId", (List<SelectListItem>)ViewData["selectMaterials"], new { @class = "form-control materialid", @message="Materyal bilgisi boş bırakılamaz.", @id="MaterialId" })
                         </th>
                         <td><label>Kalem Tanımı</label></td>
-                        <td><input id="Amount" value="1" name="Amount" class="input-sm form-control" type="number" placeholder="miktar" message="Adet bilgisi 0'dan büyük olmalıdır."/></td>
+                        <td><input id=Amount value="1" name="Amount" class="input-sm form-control amount" type="number" placeholder="miktar" message="Adet bilgisi 0'dan büyük olmalıdır."/></td>
                         <td><label>Birim</label></td>
                         <td><button class="btn btn-sm btn-danger" onClick="removeFromdtBody(this)">-</button></td>
                     </tr>`;
     function addRowTodtBody() {
-        $('#dtbody').append(trFormElement);
+        var dateId = Date.now();
+        var trElement = trFormElement.replace("id", `id="${dateId}"`)
+            .replace("id=Amount", `id="Amount-${dateId}"`)
+            .replace(`id="MaterialId"`, `id="MaterialId-${dateId}"`);
+
+        $('#dtbody').append(trElement);
     }
     function removeFromdtBody(trItem) {
         var trParent = $(trItem).parent().parent();
@@ -61,7 +66,8 @@
     function saveShipment() {
         var resultValidation = validateForm();
         if (resultValidation === true) {
-            populateFormToModel();
+            var params = populateFormToModel();
+            console.log(params);
         }
     }
     function populateFormToModel() {
@@ -73,14 +79,12 @@
             Amount: 0
         };
        
-        
         $('#dtbody tr').each(function () {
-            //console.log($(this).attr('id'));
-            model.MaterialId = $(this).children().find('#MaterialId').val();
-            model.Amount = $(this).children().find("#Amount").val();
+            model.MaterialId = $(this).children().find('.materialid').val();
+            model.Amount = $(this).children().find(".amount").val();
             modelParams.push(model);
         });
-        console.log(modelParams);
+        return modelParams;
     }
     function validateForm() {
         var flag = true;

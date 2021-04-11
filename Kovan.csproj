@@ -133,7 +133,8 @@
     </Compile>
     <Compile Include="Core\DataManager\DepotManager.cs" />
     <Compile Include="Core\DataManager\MaterialManager.cs" />
-    <Compile Include="Core\DataManager\ShipmentMaterial.cs" />
+    <Compile Include="Core\DataManager\SharedManager.cs" />
+    <Compile Include="Core\DataManager\ShipmentManager.cs" />
     <Compile Include="Core\Helpers\ConvertToObject.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -141,6 +142,7 @@
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\DepotModel.cs" />
     <Compile Include="Models\MaterialModel.cs" />
+    <Compile Include="Models\SelectModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\ShipmentModel.cs" />
   </ItemGroup>

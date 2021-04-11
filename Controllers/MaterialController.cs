@@ -1,4 +1,5 @@
 ﻿using Kovan.Core.DataManager;
+using Kovan.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,20 @@ namespace Kovan.Controllers
             {
                 return View(dm.GetMaterials());
             }
+        }
+        [HttpGet]
+        public ActionResult addMaterial()
+        {
+            return PartialView(new MaterialModel());
+        }
+        [HttpPost]
+        public ActionResult addMaterial(MaterialModel MaterialModel)
+        {
+            using (MaterialManager dm = new MaterialManager())
+            {
+                 dm.SaveMaterial(MaterialModel);
+            }
+            return RedirectToAction("Index");
         }
     }
 }

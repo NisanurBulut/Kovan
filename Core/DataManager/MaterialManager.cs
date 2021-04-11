@@ -13,5 +13,12 @@ namespace Kovan.Core.DataManager
         {
             return dc.tMaterials.Select(a => a.MaterialModel()).ToList();
         }
+        public string SaveMaterial(MaterialModel model)
+        {
+            var materialEntity = model.MaterialEntity();
+            dc.tMaterials.InsertOnSubmit(materialEntity);
+            dc.SubmitChanges();
+            return "İşlem Başarılı";
+        }
     }
 }

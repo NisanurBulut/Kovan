@@ -10,6 +10,22 @@ namespace Kovan.Core.Helpers
     public static class ConvertToObject
     {
         #region DEPOT 
+        public static SelectModel SelectModel(this tDepot item)
+        {
+            return new SelectModel
+            {
+                Id = item.Id,
+                Name = item.Name
+            };
+        }
+        public static SelectModel SelectModel(this tMaterial item)
+        {
+            return new SelectModel
+            {
+                Id = item.Id,
+                Name = item.Code
+            };
+        }
         public static DepotModel DepotModel(this tDepot item)
         {
             return new DepotModel

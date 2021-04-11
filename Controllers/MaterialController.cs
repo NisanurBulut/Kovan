@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kovan.Core.DataManager;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,10 @@ namespace Kovan.Controllers
         // GET: Material
         public ActionResult Index()
         {
-            return View();
+            using (MaterialManager dm = new MaterialManager())
+            {
+                return View(dm.GetMaterials());
+            }
         }
     }
 }

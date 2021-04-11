@@ -142,6 +142,7 @@
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\DepotModel.cs" />
     <Compile Include="Models\MaterialModel.cs" />
+    <Compile Include="Models\ShipmentListModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\ShipmentModel.cs" />
   </ItemGroup>

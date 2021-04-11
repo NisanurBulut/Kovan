@@ -1,5 +1,5 @@
 ﻿
-
+$('.alert').alert();
     $(function () {
         // a tagimizde bulunan .view classımıza click olduğunda
         $("body").on("click", ".btnModalOpen", function () {

@@ -51,6 +51,14 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
+        <div id="generalToast" class="toast fade hidden top-0 end-0" role="alert" aria-live="polite" aria-atomic="true" data-bs-delay="10000">
+            
+            <div class="d-flex">
+                <div class="toast-body text-danger">
+                </div>
+                <button onclick="$('#generalToast').toast('dispose')" type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
         <footer>
             <p>&copy; @DateTime.Now.Year -KOVAN</p>
         </footer>
@@ -67,5 +75,6 @@
             </div>
         </div>
     </div>
+
 </body>
 </html>

@@ -16,8 +16,9 @@
                 @Html.DropDownList("TargetDepotId", (List<SelectListItem>)ViewData["selectDepots"], new { @class = "form-control" })
             </div>
             <div class="col-md-2">
-               <br />
+                <br />
                 <button type="button" class="btn btn-md btn-success" onclick="addRowTodtBody()">+</button>
+                <button type="button" class="btn btn-md btn-warning" onclick="saveShipment()">Kaydet</button>
             </div>
         </div>
     </div>
@@ -41,11 +42,11 @@
 <script>
 
     var trFormElement = ` <tr id="${Date.now()}">
-                        <th scope="row">
-                            @Html.DropDownList("MaterialId", (List<SelectListItem>)ViewData["selectMaterials"], new { @class = "form-control" })
+                        <td scope="row">
+                            @Html.DropDownList("MaterialId", (List<SelectListItem>)ViewData["selectMaterials"], new { @class = "form-control", @message="Materyal bilgisi boş bırakılamaz." })
                         </th>
                         <td><label>Kalem Tanımı</label></td>
-                        <td><input class="input-sm form-control" type="number" placeholder="miktar" /></td>
+                        <td><input id="Amount" value="1" name="Amount" class="input-sm form-control" type="number" placeholder="miktar" message="Adet bilgisi 0'dan büyük olmalıdır."/></td>
                         <td><label>Birim</label></td>
                         <td><button class="btn btn-sm btn-danger" onClick="removeFromdtBody(this)">-</button></td>
                     </tr>`;
@@ -57,5 +58,23 @@
         var trParent = $(trItem).parent().parent();
         var trId = $(trParent).attr("id");
         var item = document.getElementById(trId).remove();
+    }
+    function saveShipment() {
+        if (validateForm()) {
+            alert("post işlemi");
+        }
+    }
+    function validateForm() {
+        console.log($("#OriginDepotId").val(), $("#TargetDepotId").val());
+        
+        $('#dtbody').children().find('.form-control').each(function () {
+            if (this.value == "" || this.value <= 0) {
+                $("#generalToast").removeClass("hidden");
+                $("#generalToast").addClass("show");
+                $("#generalToast .toast-body").html($(this).attr("message"));
+                return false;
+            }
+        });
+     
     }
 </script>

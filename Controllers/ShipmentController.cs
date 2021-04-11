@@ -37,7 +37,8 @@ namespace Kovan.Controllers
         {
             using (ShipmentManager dm = new ShipmentManager())
             {
-                return View(dm.GetShipmentList());
+                var models = dm.GetShipmentList();
+                return View(models);
             }
         }
     }

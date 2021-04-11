@@ -12,6 +12,7 @@ namespace Kovan.Models
         public string Material { get; set; }
         public DateTime ShipmentDate { get; set; }
         public string Unit { get; set; }
+        public int Amount { get; set; }
 
     }
 }

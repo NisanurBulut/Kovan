@@ -31,12 +31,12 @@
                         {
                             case "Depot":
                                 <li class="nav-item">
-                                    <a class="px-2 text-white" href="#">Depo Oluştur</a>
+                                    <a class="px-2 text-white btnModalOpen" href="#" data-toggle="modal" data-target="/Depot/addDepot">Depo Oluştur</a>
                                 </li>
                                 break;
                             case "Material":
                                 <li class="nav-item">
-                                    <a class="px-2 text-white" href="#">Kalem Oluştur</a>
+                                    <a class="px-2 text-white btnModalOpen" href="#" data-toggle="modal" data-target="/Material/addMaterial">Kalem Oluştur</a>
                                 </li>
                                 break;
                             case "home":
@@ -61,7 +61,7 @@
     @Scripts.Render("~/bundles/bootstrap")
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     @RenderSection("scripts", required: false)
-
+    <script src="~/Scripts/main.js"></script>
     <div class="modal fade" tabindex="-1" id="generalModal">
         <div class="modal-dialog">
             <div class="modal-content">

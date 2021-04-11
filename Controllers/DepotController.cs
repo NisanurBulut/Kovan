@@ -1,4 +1,5 @@
 ﻿using Kovan.Core.DataManager;
+using Kovan.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,16 @@ namespace Kovan.Controllers
                 var model = dm.GetDepot(id);
                 return PartialView(model);
             }
+        }
+        [HttpGet]
+        public ActionResult addDepot()
+        {
+            return PartialView(new DepotModel());
+        }
+        [HttpPost]
+        public ActionResult addDepot(DepotModel depotModel)
+        {
+            return View();
         }
     }
 }

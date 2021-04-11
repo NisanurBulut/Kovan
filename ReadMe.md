@@ -1,16 +1,19 @@
-﻿Purpose of Application
+﻿## Give a Star! :star:
+If you like or are using this project to learn or start your solution, please give it a star. Thanks!
+
+## Purpose of Application
 - Performs stock transfer from one warehouse to another.
 
 * Bootstrap5 was used in frontend design and MSSQL was used as database. Hive is an ASP.Net MVC project.
 
-Usage of the Application
+## Usage of the Application
 The user chooses the center and target warehouse points. After this selection process, it determines the material to be shipped. Indicates how much material will be submitted. The user can simultaneously ship more than one material between two warehouses.
 
 User can add, delete, update and list operations on repository information.
 
 The user can add, delete, update and list the material information.
 
-Constraints of the Application
+## Constraints of the Application
 - The user has to select the source and target warehouse from the defined repositories.
 - The user chooses as many materials as he wants.
 - Unit field and item definition fields are readonly fields.

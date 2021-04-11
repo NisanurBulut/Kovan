@@ -18,5 +18,14 @@ namespace Kovan.Core.Helpers
                 Name = item.Name
             };
         }
+        public static tDepot DepotEntity(this DepotModel item)
+        {
+            return new tDepot
+            {
+                Id = item.Id,
+                Code = item.Code,
+                Name = item.Name
+            };
+        }
     }
 }

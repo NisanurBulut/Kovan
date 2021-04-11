@@ -17,5 +17,12 @@ namespace Kovan.Core.DataManager
         {
             return dc.tDepots.Where(a => a.Id == id).Select(a=>a.DepotModel()).FirstOrDefault() ?? new DepotModel();
         }
+        public string SaveDepot(DepotModel model)
+        {
+            var depotEntity = model.DepotEntity();
+            dc.tDepots.InsertOnSubmit(depotEntity);
+            dc.SubmitChanges();
+            return "İşlem Başarılı";
+        }
     }
 }

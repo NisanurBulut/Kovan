@@ -35,7 +35,11 @@ namespace Kovan.Controllers
         [HttpPost]
         public ActionResult addDepot(DepotModel depotModel)
         {
-            return View();
+            using (DepotManager dm = new DepotManager())
+            {
+                dm.SaveDepot(depotModel);
+            }
+            return RedirectToAction("Index");
         }
     }
 }

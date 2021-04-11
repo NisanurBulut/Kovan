@@ -9,6 +9,7 @@ namespace Kovan.Core.Helpers
 {
     public static class ConvertToObject
     {
+        #region DEPOT 
         public static DepotModel DepotModel(this tDepot item)
         {
             return new DepotModel
@@ -27,5 +28,29 @@ namespace Kovan.Core.Helpers
                 Name = item.Name
             };
         }
+        #endregion
+
+        #region MATERIAL
+        public static MaterialModel MaterialModel(this tMaterial item)
+        {
+            return new MaterialModel
+            {
+                Id = item.Id,
+                Code = item.Code,
+                Description = item.Description,
+                Unit = item.Unit
+            };
+        }
+        public static tMaterial MaterialEntity(this MaterialModel item)
+        {
+            return new tMaterial
+            {
+                Id = item.Id,
+                Code = item.Code,
+                Description = item.Description,
+                Unit = item.Unit
+            };
+        }
+        #endregion
     }
 }

@@ -1,4 +1,5 @@
-﻿using Kovan.Models;
+﻿using Kovan.Core.Helpers;
+using Kovan.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace Kovan.Core.DataManager
     {
         public List<MaterialModel> GetMaterials()
         {
-            return dc.tDepots.Select(a => a.MaterialModel()).ToList();
+            return dc.tMaterials.Select(a => a.MaterialModel()).ToList();
         }
     }
 }

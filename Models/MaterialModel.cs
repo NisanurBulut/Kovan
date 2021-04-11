@@ -6,9 +6,8 @@ using System.Web;
 
 namespace Kovan.Models
 {
-    public class MaterialModel
+    public class MaterialModel: BaseModel
     {
-        public int Id { get; set; }
         [DisplayName("Açıklama")]
         public string Description { get; set; }
         [DisplayName("Materyal Kodu")]

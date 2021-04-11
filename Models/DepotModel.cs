@@ -6,9 +6,8 @@ using System.Web;
 
 namespace Kovan.Models
 {
-    public class DepotModel
+    public class DepotModel: BaseModel
     {
-        public int Id { get; set; }
         [DisplayName("Depo Kodu")]
         public string Code { get; set; }
         [DisplayName("Depo Adı")]

@@ -164,6 +164,7 @@
     <None Include="Core\DataManager\dbKovan.dbml.layout">
       <DependentUpon>dbKovan.dbml</DependentUpon>
     </None>
+    <Content Include="ReadMe.md" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -199,6 +200,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Trailers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

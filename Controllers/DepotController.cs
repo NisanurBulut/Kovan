@@ -49,5 +49,23 @@ namespace Kovan.Controllers
             }
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public ActionResult deleteDepot(int id)
+        {
+            using (DepotManager dm = new DepotManager())
+            {
+                var model = dm.GetDepot(id);
+                return PartialView(model);
+            }
+        }
+        [HttpDelete]
+        public ActionResult destroyDepot(int id)
+        {
+            using (DepotManager dm = new DepotManager())
+            {
+                dm.DeleteDepot(id);
+            }
+            return RedirectToAction("Index");
+        }
     }
 }

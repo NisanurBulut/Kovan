@@ -32,5 +32,12 @@ namespace Kovan.Core.DataManager
             dc.SubmitChanges();
             return "İşlem Başarılı";
         }
+        public string DeleteDepot(int id)
+        {
+            var depotEntity = dc.tDepots.Where(a => a.Id == id).FirstOrDefault();
+            dc.tDepots.DeleteOnSubmit(depotEntity);
+            dc.SubmitChanges();
+            return "İşlem Başarılı";
+        }
     }
 }

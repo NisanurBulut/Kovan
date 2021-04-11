@@ -2,18 +2,24 @@
 @{
     ViewBag.Title = "Hareket Merkezi";
 }
-
+<div id="generalToast" class="toast fade hidden bg-primary position-fixed bottom-0 end-0 m-3" role="alert" aria-live="polite" aria-atomic="true" data-bs-delay="10000">
+        <div class="d-flex">
+            <div class="toast-body">
+            </div>
+            <button onclick="$('#generalToast').toast('dispose')" type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
 
 <form>
     <div class="jumbotron" style="margin-top:2rem;">
         <div class="row">
             <div class="col-md-5">
                 <label>Kaynak Depo</label>
-                @Html.DropDownList("OriginDepotId", (List<SelectListItem>)ViewData["selectDepots"], new { @class = "form-control", @message="Kaynak depo bilgisi boş bırakılamaz." })
+                @Html.DropDownList("OriginDepotId", (List<SelectListItem>)ViewData["selectDepots"], new { @class = "form-control", @message = "Kaynak depo bilgisi boş bırakılamaz." })
             </div>
             <div class="col-md-5">
                 <label>Hedef Depo</label>
-                @Html.DropDownList("TargetDepotId", (List<SelectListItem>)ViewData["selectDepots"], new { @class = "form-control", @message="Hedef depo bilgisi boş bırakılamaz." })
+                @Html.DropDownList("TargetDepotId", (List<SelectListItem>)ViewData["selectDepots"], new { @class = "form-control", @message = "Hedef depo bilgisi boş bırakılamaz." })
             </div>
             <div class="col-md-2">
                 <br />
@@ -74,10 +80,11 @@
                     contentType: 'application/json; charset=utf-8',
                     dataType: 'json',
                     data: things,
-                success: function (response) {
-
+                    success: function (response) {
+                        console.log(response);
                 },
                     error: function (err) {
+                        console.log(err);
                         showToast("Bir hata ile karşılaşıldı. İşlem iptal edildi.");
                 }
             });

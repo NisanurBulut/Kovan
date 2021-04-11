@@ -50,6 +50,23 @@ namespace Kovan.Controllers
             }
             return RedirectToAction("Index");
         }
-
+        [HttpGet]
+        public ActionResult deleteMaterial(int id)
+        {
+            using (MaterialManager dm = new MaterialManager())
+            {
+                var model = dm.GetMaterial(id);
+                return PartialView(model);
+            }
+        }
+        [HttpDelete]
+        public ActionResult destroyMaterial(int id)
+        {
+            using (MaterialManager dm = new MaterialManager())
+            {
+                dm.DeleteMaterial(id);
+            }
+            return RedirectToAction("Index");
+        }
     }
 }

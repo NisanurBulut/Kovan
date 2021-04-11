@@ -7,18 +7,18 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="model-body">
+        <div class="alert alert-danger" role="alert">Bu işlem geri alınamaz. Devam etmek istediğinizden emin misiniz ?</div>
         <ul class="list-group">
             <li class="list-group-item">@Model.Code</li>
             <li class="list-group-item">@Model.Name</li>
         </ul>
-       
     </div>
     @using (Html.BeginForm("destroyDepot", "depot", new { Id = Model.Id }))
     {
         @Html.HttpMethodOverride(HttpVerbs.Delete)
         <div class="modal-footer">
             @Html.AntiForgeryToken()
-            <button type="submit" class="btn btn-primary">Kaydet</button>
+            <button type="submit" class="btn btn-warning">Kalıcı olarak sil</button>
         </div>
     }
 

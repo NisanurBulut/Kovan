@@ -193,6 +193,7 @@
     <Content Include="Views\Depot\deleteDepot.cshtml" />
     <Content Include="Views\Material\addMaterial.cshtml" />
     <Content Include="Views\Material\editMaterial.cshtml" />
+    <Content Include="Views\Material\deleteMaterial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

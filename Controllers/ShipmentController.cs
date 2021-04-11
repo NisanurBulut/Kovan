@@ -32,5 +32,14 @@ namespace Kovan.Controllers
             }
             return Json("", JsonRequestBehavior.AllowGet);
         }
+        [HttpGet]
+        public ActionResult ShipmentList()
+        {
+            using (ShipmentManager dm = new ShipmentManager())
+            {
+                var models = dm.GetShipmentList();
+                return View(models);
+            }
+        }
     }
 }

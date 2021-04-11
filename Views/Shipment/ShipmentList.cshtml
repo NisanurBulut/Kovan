@@ -1,0 +1,36 @@
+﻿@model List<Kovan.Models.ShipmentListModel>
+@{
+    ViewBag.Title = "ShipmentList";
+}
+
+<div class="container bg-grey">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Kaynak Depo</th>
+                <th scope="col">Hedef Depo</th>
+                <th scope="col">Materyal</th>
+                <th scope="col">Birim</th>
+                <th scope="col">Adet</th>
+                <th scope="col">Sevkiyat Tarihi</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <th scope="row">@item.Id</th>
+                <td>@item.OriginDepot</td>
+                <td>@item.TargetDepot</td>
+                <td>@item.Material</td>
+                <td>@item.Unit</td>
+                <td>@item.Amount</td>
+                <td>@item.ShipmentDate</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

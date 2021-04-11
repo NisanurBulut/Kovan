@@ -142,6 +142,7 @@
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\DepotModel.cs" />
     <Compile Include="Models\MaterialModel.cs" />
+    <Compile Include="Models\ShipmentListModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\ShipmentModel.cs" />
   </ItemGroup>
@@ -178,6 +179,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Trailers\Trailer_Kovan.gif" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -198,11 +200,10 @@
     <Content Include="Views\Material\addMaterial.cshtml" />
     <Content Include="Views\Material\editMaterial.cshtml" />
     <Content Include="Views\Material\deleteMaterial.cshtml" />
+    <Content Include="Views\Shipment\ShipmentList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="NewFolder1\" />
-    <Folder Include="Trailers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

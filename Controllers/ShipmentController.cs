@@ -22,6 +22,13 @@ namespace Kovan.Controllers
         [HttpPost]
         public ActionResult SaveShipment(List<ShipmentModel> shipments)
         {
+            using (ShipmentManager dm = new ShipmentManager())
+            {
+                foreach (var shipment in shipments)
+                {
+                    dm.SaveShipment(shipment);
+                }
+            }
             return RedirectToAction("Index");
         }
     }

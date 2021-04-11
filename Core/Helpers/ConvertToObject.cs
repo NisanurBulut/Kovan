@@ -10,7 +10,33 @@ namespace Kovan.Core.Helpers
 {
     public static class ConvertToObject
     {
-        #region DEPOT 
+        #region SHIPMENT
+        public static ShipmentModel ShipmentModel(this tShipment item)
+        {
+            return new ShipmentModel
+            {
+                Id = item.Id,
+                ShipmentDate = item.ShipmentDate,
+                OriginDepotId = item.OriginDepotId,
+                TargetDepotId = item.TargetDepotId,
+                MaterialId = item.MaterialId,
+                Amount= item.Amount
+            };
+        }
+        public static tShipment ShipmentEntity(this ShipmentModel item)
+        {
+            return new tShipment
+            {
+                Id = item.Id,
+                ShipmentDate = item.ShipmentDate,
+                OriginDepotId = item.OriginDepotId,
+                TargetDepotId = item.TargetDepotId,
+                MaterialId = item.MaterialId,
+                Amount = item.Amount
+            };
+        }
+        #endregion
+        #region SHARED
         public static SelectListItem SelectModel(this tDepot item)
         {
             return new SelectListItem
@@ -27,6 +53,8 @@ namespace Kovan.Core.Helpers
                 Text = item.Code
             };
         }
+        #endregion
+        #region DEPOT      
         public static DepotModel DepotModel(this tDepot item)
         {
             return new DepotModel
@@ -58,6 +86,7 @@ namespace Kovan.Core.Helpers
                 Unit = item.Unit
             };
         }
+
         public static tMaterial MaterialEntity(this MaterialModel item)
         {
             return new tMaterial

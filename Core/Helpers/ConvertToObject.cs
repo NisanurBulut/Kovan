@@ -4,26 +4,27 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Kovan.Core.Helpers
 {
     public static class ConvertToObject
     {
         #region DEPOT 
-        public static SelectModel SelectModel(this tDepot item)
+        public static SelectListItem SelectModel(this tDepot item)
         {
-            return new SelectModel
+            return new SelectListItem
             {
-                Id = item.Id,
-                Name = item.Name
+                Value = item.Id.ToString(),
+                Text = item.Name
             };
         }
-        public static SelectModel SelectModel(this tMaterial item)
+        public static SelectListItem SelectModel(this tMaterial item)
         {
-            return new SelectModel
+            return new SelectListItem
             {
-                Id = item.Id,
-                Name = item.Code
+                Value = item.Id.ToString(),
+                Text = item.Code
             };
         }
         public static DepotModel DepotModel(this tDepot item)

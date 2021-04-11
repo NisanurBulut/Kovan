@@ -1,41 +1,22 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "Hareket Merkezi";
 }
+
 
 <form>
     <div class="jumbotron" style="margin-top:2rem;">
         <div class="row">
             <div class="col-md-5">
-                <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        Kaynak Depo
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                    </ul>
-                </div>
+                <label>Kaynak Depo</label>
+                @Html.DropDownList("OriginDepotId", (List<SelectListItem>)ViewData["selectDepots"], new { @class = "form-control" })
             </div>
             <div class="col-md-5">
-                <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        Hedef Depo
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                    </ul>
-                </div>
+                <label>Hedef Depo</label>
+                @Html.DropDownList("TargetDepotId", (List<SelectListItem>)ViewData["selectDepots"], new { @class = "form-control" })
             </div>
             <div class="col-md-2">
+               <br />
                 <button type="button" class="btn btn-md btn-success" onclick="addRowTodtBody()">+</button>
             </div>
         </div>
@@ -52,7 +33,6 @@
                 </tr>
             </thead>
             <tbody id="dtbody">
-               
             </tbody>
         </table>
     </div>
@@ -61,26 +41,14 @@
 <script>
 
     var trFormElement = ` <tr id="${Date.now()}">
-                    <th scope="row">
-                        <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                Kalem Kodu
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                            </ul>
-                        </div>
-                    </th>
-                    <td><label>Kalem Tanımı</label></td>
-                    <td><input class="input-sm" type="number" placeholder="miktar" /></td>
-                    <td><label>Birim</label></td>
-                    <td><button class="btn btn-sm btn-danger" onClick="removeFromdtBody(this)">-</button></td>
-                </tr>`;
+                        <th scope="row">
+                            @Html.DropDownList("MaterialId", (List<SelectListItem>)ViewData["selectMaterials"], new { @class = "form-control" })
+                        </th>
+                        <td><label>Kalem Tanımı</label></td>
+                        <td><input class="input-sm form-control" type="number" placeholder="miktar" /></td>
+                        <td><label>Birim</label></td>
+                        <td><button class="btn btn-sm btn-danger" onClick="removeFromdtBody(this)">-</button></td>
+                    </tr>`;
     function addRowTodtBody() {
         console.log(Date.now()); // generate
         $('#dtbody').append(trFormElement);
@@ -88,6 +56,6 @@
     function removeFromdtBody(trItem) {
         var trParent = $(trItem).parent().parent();
         var trId = $(trParent).attr("id");
-        var item = document.getElementById(trId).remove();   
+        var item = document.getElementById(trId).remove();
     }
 </script>

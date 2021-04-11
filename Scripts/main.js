@@ -1,6 +1,7 @@
 ﻿
-$('.alert').alert();
-    $(function () {
+
+$(function () {
+    $('.alert').alert();
         // a tagimizde bulunan .view classımıza click olduğunda
         $("body").on("click", ".btnModalOpen", function () {
             var url = $(this).data("target");

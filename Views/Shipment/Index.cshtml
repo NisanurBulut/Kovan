@@ -41,7 +41,7 @@
 
 <script>
 
-    var trFormElement = ` <tr id="${Date.now()}">
+    var trFormElement = ` <tr id>
                         <td scope="row">
                             @Html.DropDownList("MaterialId", (List<SelectListItem>)ViewData["selectMaterials"], new { @class = "form-control", @message="Materyal bilgisi boş bırakılamaz." })
                         </th>
@@ -51,7 +51,6 @@
                         <td><button class="btn btn-sm btn-danger" onClick="removeFromdtBody(this)">-</button></td>
                     </tr>`;
     function addRowTodtBody() {
-        console.log(Date.now()); // generate
         $('#dtbody').append(trFormElement);
     }
     function removeFromdtBody(trItem) {
@@ -60,21 +59,40 @@
         var item = document.getElementById(trId).remove();
     }
     function saveShipment() {
-        if (validateForm()) {
-            alert("post işlemi");
+        var resultValidation = validateForm();
+        if (resultValidation === true) {
+            populateFormToModel();
         }
     }
+    function populateFormToModel() {
+        var modelParams = [];
+        var model = {
+            OriginDepotId: $("#OriginDepotId").val(),
+            TargetDepotId: $("#TargetDepotId").val(),
+            MaterialId: 0,
+            Amount: 0
+        };
+       
+        
+        $('#dtbody tr').each(function () {
+            //console.log($(this).attr('id'));
+            model.MaterialId = $(this).children().find('#MaterialId').val();
+            model.Amount = $(this).children().find("#Amount").val();
+            modelParams.push(model);
+        });
+        console.log(modelParams);
+    }
     function validateForm() {
-        console.log($("#OriginDepotId").val(), $("#TargetDepotId").val());
+        var flag = true;
         
         $('#dtbody').children().find('.form-control').each(function () {
             if (this.value == "" || this.value <= 0) {
                 $("#generalToast").removeClass("hidden");
                 $("#generalToast").addClass("show");
                 $("#generalToast .toast-body").html($(this).attr("message"));
-                return false;
-            }
+                flag = false;
+            } 
         });
-     
+        return flag;
     }
 </script>

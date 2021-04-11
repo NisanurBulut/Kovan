@@ -24,5 +24,13 @@ namespace Kovan.Core.DataManager
             dc.SubmitChanges();
             return "İşlem Başarılı";
         }
+        public string UpdateDepot(DepotModel model)
+        {
+            var depotEntity = dc.tDepots.Where(a=>a.Id==model.Id).FirstOrDefault();
+            depotEntity.Code = model.Code;
+            depotEntity.Name = model.Name;
+            dc.SubmitChanges();
+            return "İşlem Başarılı";
+        }
     }
 }

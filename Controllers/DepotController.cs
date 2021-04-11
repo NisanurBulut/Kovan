@@ -27,6 +27,14 @@ namespace Kovan.Controllers
                 return PartialView(model);
             }
         }
+        public ActionResult editDepot(DepotModel depotModel)
+        {
+            using (DepotManager dm = new DepotManager())
+            {
+                dm.UpdateDepot(depotModel);
+            }
+            return RedirectToAction("Index");
+        }
         [HttpGet]
         public ActionResult addDepot()
         {

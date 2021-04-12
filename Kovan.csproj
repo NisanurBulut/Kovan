@@ -167,6 +167,7 @@
       <DependentUpon>dbKovan.dbml</DependentUpon>
     </None>
     <Content Include="ReadMe.md" />
+    <Content Include="dbKovan.bak" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -205,6 +206,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+<<<<<<< HEAD
+=======
+    <Folder Include="Trailers\" />
+>>>>>>> inserted datatabase backup
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
